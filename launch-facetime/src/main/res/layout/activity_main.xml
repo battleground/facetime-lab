@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.bftv.launch_samples.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onStart1"
+        android:padding="12dp"
+        android:text="ACTIVITY：\ncom.bftv.facetime.activity.WelcomeActivity" />
+
+    <include layout="@layout/line_h" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onStart2"
+        android:padding="12dp"
+        android:text="ACTION：\ncom.bftv.facetime.action.MAIN" />
+
+    <include layout="@layout/line_h" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onStart3"
+        android:padding="12dp"
+        android:text="ACTIVITY：\ncom.bftv.fui.videochat.views.actvitity.VideoChatMenuActivity" />
+
+    <include layout="@layout/line_h" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onStart4"
+        android:padding="12dp"
+        android:text="ACTION：\ncom.bftv.fui.videochat.VideoChatMenuActivity" />
+
+    <include layout="@layout/line_h" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onStart5"
+        android:padding="12dp"
+        android:text="ACTION：ACTION_MAIN\nCATEGORY_LAUNCHER" />
+
+    <include layout="@layout/line_h" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onStartService"
+        android:padding="12dp"
+        android:text="保活：onStartService" />
+
+    <include layout="@layout/line_h" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/list_selector_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="onCallFromDaerduo"
+        android:padding="12dp"
+        android:text="大耳朵：呼叫" />
+
+</LinearLayout>
