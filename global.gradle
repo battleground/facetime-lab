@@ -1,33 +1,21 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-def releaseTime() {
-    return new Date().format("MMdd HH:mm:ss")
-}
-
 def gitCommitCount = Integer.parseInt('git rev-list HEAD --count'.execute([], project.rootDir).text.trim())
 def date = 'git log -1 --pretty=%ci'.execute([], project.rootDir).text.trim().split()
 def gitCommitDate = date[0]
 def gitCommitTime = date[1]
 println("gitCommitCount:" + gitCommitCount + ", gitCommitDate:" + gitCommitDate + ", gitCommitTime:" + gitCommitTime)
 
-// 因为要对之前版本的应用覆盖升级，之前版本 < 400，新版本要确保高于这个值才能覆盖升级。
-def oldVersion = 400
-
-def versionName = "4.0.1." + (gitCommitCount + oldVersion)
-def versionCode = 100000 + gitCommitCount + oldVersion
+def versionName = "1.0.0"
+def versionCode = gitCommitCount
 
 ext {
 
-    appName = "FaceTime"
+    appName = "FaceTime-Labs"
 
     configuration = [
-            compileSdkVersion    : 25,
-            buildToolsVersion    : '25.0.2',
-            minSdkVersion        : 19,
-            targetSdkVersion     : 21,
             versionCode          : versionCode,
-            versionName          : versionName,
-            androidSupportVersion: '25.3.1'
+            versionName          : versionName
     ]
 }
 println("appName:" + appName + ", versionName:" + versionName + ", versionCode:" + versionCode)

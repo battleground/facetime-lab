@@ -1,14 +1,17 @@
 apply plugin: 'com.android.application'
 
+def cfg = rootProject.ext
+def v = rootProject.ext.configuration
+
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.2"
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
         applicationId "com.bftv.facetime.lab"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode v.versionCode
+        versionName v.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

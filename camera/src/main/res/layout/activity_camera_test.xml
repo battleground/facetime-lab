@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="24dp"
+        android:text="切换" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Hello Agora!"
+        android:textColor="#ddd"
+        android:textSize="32sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:id="@+id/cameraView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center|top"
+        android:background="#10000000">
+
+    </FrameLayout>
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center|bottom" />
+</FrameLayout>

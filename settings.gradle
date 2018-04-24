@@ -1,1 +1,3 @@
-include ':app', ':launch-facetime'
+include ':app'
+include ':camera'
+//include ':launch-facetime'
