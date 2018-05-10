@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true">
+
+    <FrameLayout
+        android:id="@+id/videoBigLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="160dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginRight="180dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/ic_facetime_video_background_shadow_x">
+
+        <FrameLayout
+            android:id="@+id/videoBigFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#222" />
+
+        <ImageView
+            android:id="@+id/videoBigAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/videoNoNetworkV1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:text="string/facetime_video_onConnectionInterrupted"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/faceRemoteAudioMutedV1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:background="#15000000"
+            android:padding="8dp"
+            android:text="对方已静音"
+            android:textColor="#B0FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="120dp"
+        android:layout_marginLeft="330dp"
+        android:layout_marginRight="180dp"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:id="@+id/videoSmallLayout"
+        android:layout_width="320dp"
+        android:layout_height="200dp"
+        android:layout_gravity="right"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/ic_facetime_video_background_shadow_x">
+
+        <FrameLayout
+            android:id="@+id/videoSmallFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#111" />
+
+        <TextView
+            android:id="@+id/videoSmallTextV1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:text="string"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/videoSmallAlert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="12dp"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <include
+        layout="@layout/facetime_calling_menu_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginBottom="150dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="120dp" />
+
+</FrameLayout>
