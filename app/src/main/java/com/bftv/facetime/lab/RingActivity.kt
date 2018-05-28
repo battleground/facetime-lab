@@ -57,6 +57,17 @@ class RingActivity : AppCompatActivity() {
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        aRing.requestFocus()
+
+    }
+
+    override fun onStop() {
+        super.onStop()
+        aRing.releaseFocus()
+    }
+
     private fun sendKeyEvent() {
         Thread(Runnable {
             val inst = Instrumentation()
@@ -97,5 +108,8 @@ class RingActivity : AppCompatActivity() {
     var run2: () -> Unit = { imageV2.startAnimation(Anim.createAnimationSet()) }
     var run3: () -> Unit = { imageV3.startAnimation(Anim.createAnimationSet()) }
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 
 }

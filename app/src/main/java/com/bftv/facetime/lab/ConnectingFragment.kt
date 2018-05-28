@@ -82,6 +82,7 @@ class ConnectingFragment : Fragment(), OnKeyEventEnable {
 
     private fun showMenu() {
         menuVertical.visibility = View.VISIBLE
+        fullScreenV1.requestFocus()
     }
 
     private fun hideMenu() {
@@ -104,7 +105,6 @@ class ConnectingFragment : Fragment(), OnKeyEventEnable {
         var p = timeText.layoutParams as FrameLayout.LayoutParams
         p.bottomMargin = timeTextBottom
         timeText.layoutParams = p
-        fullScreenV1.requestFocus()
     }
 
     override fun onBackPressed(): Boolean {

@@ -3,6 +3,7 @@ package com.bftv.facetime.lab
 import android.content.Context
 import android.media.AudioManager
 import android.media.SoundPool
+import android.os.Build
 import com.abooc.util.Debug
 
 /**
@@ -10,7 +11,7 @@ import com.abooc.util.Debug
  *
  * @author dayu
  */
-class Ring(val context: Context) {
+class Ring(val context: Context) : AudioManager.OnAudioFocusChangeListener {
 
     private val ring_phone = R.raw.phonering
     private val ring_busy = R.raw.ring_busy
@@ -20,6 +21,11 @@ class Ring(val context: Context) {
     private var loadedId: Int = 0
     private var streamId: Int = 0
     private var priority: Int = 1
+    private var mAudioManager: AudioManager? = null
+
+    init {
+        mAudioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager?
+    }
 
 
     fun run() {
@@ -46,7 +52,6 @@ class Ring(val context: Context) {
         val fixedThreadPool = App.Companion.newFixedThreadPool(2)
         fixedThreadPool.execute({
             mSoundPool.stop(streamId)
-//            mSoundPool.release()
         })
     }
 
@@ -58,6 +63,45 @@ class Ring(val context: Context) {
     fun error() {
         mSoundPool.stop(streamId)
         loadedId = mSoundPool.load(context.applicationContext, ring_connect_error, priority)
+    }
+
+    override fun onAudioFocusChange(focusChange: Int) {
+        when (focusChange) {
+            AudioManager.AUDIOFOCUS_LOSS -> {
+                Debug.error("AUDIOFOCUS_LOSS:$focusChange")
+
+            }
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT -> {
+                Debug.error("AUDIOFOCUS_LOSS_TRANSIENT:$focusChange")
+
+            }
+            AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK -> {
+                Debug.error("AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK:$focusChange")
+
+            }
+            AudioManager.AUDIOFOCUS_GAIN -> {
+                Debug.error("AUDIOFOCUS_GAIN:$focusChange")
+            }
+            else -> {
+                Debug.error("focusChange:$focusChange")
+            }
+        }
+    }
+
+    fun requestFocus() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            mAudioManager?.requestAudioFocus(this,
+                    AudioManager.STREAM_MUSIC,
+                    AudioManager.AUDIOFOCUS_GAIN_TRANSIENT_EXCLUSIVE)
+        } else {
+            mAudioManager?.requestAudioFocus(this,
+                    AudioManager.STREAM_MUSIC,
+                    AudioManager.AUDIOFOCUS_GAIN)
+        }
+    }
+
+    fun releaseFocus() {
+        mAudioManager?.abandonAudioFocus(this)
     }
 
 }
