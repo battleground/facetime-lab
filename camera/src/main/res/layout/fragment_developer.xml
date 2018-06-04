@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DeveloperFragment">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:text="通讯录"
+        android:textColor="#FFF"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:visibility="gone" />
+
+    <!--<include layout="@layout/options_menu_description" />-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#10FFFFFF"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/usbDevicesName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已连接外脑设备：未找到"
+            android:textColor="#AAA"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/usbCameraParameters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="支持分辨率：如320x240，640x480"
+            android:textColor="#CCC"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:id="@+id/cameraFrame"
+            android:layout_width="320dp"
+            android:layout_height="240dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="#222" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -12,6 +12,7 @@
         android:text="切换" />
 
     <TextView
+        android:id="@+id/agora"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -27,11 +28,23 @@
         android:layout_gravity="center|top"
         android:background="#10000000">
 
+        <SurfaceView
+            android:id="@+id/surfaceView2"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center|bottom" />
     </FrameLayout>
 
-    <SurfaceView
-        android:id="@+id/surfaceView"
+    <FrameLayout
+        android:id="@+id/cameraLayout"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_gravity="center|bottom" />
+        android:layout_gravity="center|bottom"
+        android:background="#90000000">
+
+        <SurfaceView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
 </FrameLayout>
