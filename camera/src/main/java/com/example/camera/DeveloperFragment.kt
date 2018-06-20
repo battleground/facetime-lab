@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.graphics.Color
 import android.hardware.Camera
 import android.hardware.usb.UsbDevice
 import android.hardware.usb.UsbManager
@@ -55,8 +56,41 @@ class DeveloperFragment : Fragment() {
 
 
         setupCameraView(cameraFrame)
+
+        button1.setOnClickListener {
+            aaa(320, 240)
+        }
+
+        button2.setOnClickListener {
+            aaa(640, 480)
+        }
+
+        button3.setOnClickListener {
+            aaa(1280, 720)
+        }
+
     }
 
+    @SuppressLint("SetTextI18n")
+    fun aaa(width: Int, height: Int) {
+        var param = mCamera?.parameters
+        try {
+            mCamera?.stopPreview()
+
+            param?.setPreviewSize(width, height)
+            mCamera?.parameters = param
+            mCamera?.startPreview()
+            info.text = "OK"
+            info.setTextColor(Color.parseColor("#FF16C41C"))
+        } catch (e: Exception) {
+            Debug.error(e)
+
+            info.text = "不支持：${param?.previewSize?.width}x${param?.previewSize?.height}"
+            info.setTextColor(Color.parseColor("#FFF13C42"))
+
+            mCamera?.stopPreview()
+        }
+    }
 
     val uiHandler = Handler()
 
@@ -75,11 +109,13 @@ class DeveloperFragment : Fragment() {
                 }
             }
 
+            @SuppressLint("SetTextI18n")
             override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
                 Debug.error(mCamera)
-                setupParameters()
-                mCamera?.parameters?.setPreviewSize(320, 240)
-                mCamera?.startPreview()
+                showParametersInfo()
+
+                button1.isChecked = true
+                aaa(320, 240)
             }
 
             override fun surfaceDestroyed(holder: SurfaceHolder) {
@@ -130,7 +166,7 @@ class DeveloperFragment : Fragment() {
         Debug.anchor()
     }
 
-    fun setupParameters() {
+    fun showParametersInfo() {
         try {
             var size = mCamera?.parameters?.supportedVideoSizes
             var str = sizesToString(size)
@@ -167,6 +203,7 @@ class DeveloperFragment : Fragment() {
                     Debug.anchor("已移除【外脑】设备：" + device.deviceName)
                     usbDevicesName.text = "未找到【外脑】设备"
                     usbCameraParameters.text = null
+                    info.text = null
                     clearCanvas(cameraFrame)
                 }
             } else if (action == Developer.ACTION_USB_DEVICE_ATTACHED) {

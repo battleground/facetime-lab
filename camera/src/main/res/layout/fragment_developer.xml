@@ -43,10 +43,56 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#10FFFFFF"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="320x240, "
+                    android:textSize="24sp" />
+
+                <RadioButton
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="640x480, "
+                    android:textSize="24sp" />
+
+                <RadioButton
+                    android:id="@+id/button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1280x720, "
+                    android:textSize="24sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="32dp"
+                android:text="info"
+                android:textColor="#CCC"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
         <FrameLayout
             android:id="@+id/cameraFrame"
-            android:layout_width="320dp"
-            android:layout_height="240dp"
+            android:layout_width="640dp"
+            android:layout_height="480dp"
             android:layout_gravity="center_horizontal|bottom"
             android:background="#222" />
 
