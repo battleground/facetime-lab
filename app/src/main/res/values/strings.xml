@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">facetime-lab</string>
+
+    <string name="mainTab1Text">拨号</string>
+    <string name="mainTab2Text">通讯录</string>
+    <string name="mainTab3Text">设置</string>
+
 </resources>

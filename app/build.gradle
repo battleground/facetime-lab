@@ -10,7 +10,7 @@ android {
     buildToolsVersion cfg.buildToolsVersion
     defaultConfig {
         applicationId "com.bftv.facetime.lab"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 25
         versionCode v.versionCode
         versionName v.versionName
@@ -24,11 +24,18 @@ android {
     }
 }
 
+repositories {
+    google()
+    flatDir {
+        dirs 'libs'
+    }
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.abooc.debug:debug-core:latest.release'
     testImplementation 'junit:junit:4.12'
 
+    implementation(name: 'app.resource-release', ext: 'aar')
     implementation 'com.android.support:appcompat-v7:25.3.1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "org.jetbrains.anko:anko-common:$anko_version"

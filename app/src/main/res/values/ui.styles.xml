@@ -1,0 +1,32 @@
+<resources>
+
+    <style name="AppDialNumber">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">6dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/default_button</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:text">8</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/color_tab_text</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="TabStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:ems">3</item>
+        <item name="android:background">@drawable/tab_item_background</item>
+        <item name="android:focusable">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:text">拨号</item>
+        <item name="android:textColor">@color/color_tab_text</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+</resources>
